@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fachrurozi | Senior IT Manager & Infrastructure Leader</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#0284c7',
+                            600: '#0369a1',
+                            700: '#075985',
+                            800: '#0c4a6e',
+                            accent: '#38bdf8'
+                        },
+                        darkbg: '#080c14',
+                        cardbg: '#0f172a',
+                        borderbg: '#1e293b'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Font Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #080c14;
+            color: #f1f5f9;
+        }
+        .glow-effect {
+            box-shadow: 0 0 30px -5px rgba(2, 132, 199, 0.2);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-darkbg text-slate-200 antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 w-full z-50 glass-panel transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#hero" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-600 flex items-center justify-center font-bold text-white text-xl shadow-lg shadow-brand-500/20 group-hover:scale-105 transition-transform">
+                    F
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-bold text-lg text-white tracking-tight group-hover:text-brand-accent transition-colors">Fachrurozi</span>
+                    <span class="text-xs text-slate-400 font-medium">Senior IT Manager</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center space-x-8 font-medium text-sm">
+                <a href="#summary" class="text-slate-300 hover:text-brand-accent transition-colors">Executive Summary</a>
+                <a href="#competencies" class="text-slate-300 hover:text-brand-accent transition-colors">Competencies</a>
+                <a href="#experience" class="text-slate-300 hover:text-brand-accent transition-colors">Experience</a>
+                <a href="#projects" class="text-slate-300 hover:text-brand-accent transition-colors">Projects & Innovations</a>
+                <a href="#metrics" class="text-slate-300 hover:text-brand-accent transition-colors">Impact & Metrics</a>
+            </nav>
+
+            <div class="hidden md:flex items-center space-x-4">
+                <button onclick="openModal('resume-modal')" class="px-4 py-2.5 rounded-lg border border-slate-700 hover:bg-borderbg text-slate-200 text-sm font-semibold transition-colors">
+                    <i class="fa-solid fa-file-pdf mr-2 text-brand-accent"></i>View Executive Profile
+                </button>
+                <a href="#contact" class="px-5 py-2.5 rounded-lg bg-gradient-to-r from-brand-600 to-indigo-600 text-white font-semibold text-sm hover:opacity-90 transition-opacity shadow-lg shadow-brand-500/25">
+                    Connect
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-slate-400 hover:text-white focus:outline-none p-2" aria-label="Toggle Navigation">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cardbg border-b border-borderbg px-4 pt-2 pb-6 space-y-3">
+            <a href="#summary" class="block text-slate-300 hover:text-brand-accent py-2 font-medium">Executive Summary</a>
+            <a href="#competencies" class="block text-slate-300 hover:text-brand-accent py-2 font-medium">Competencies</a>
+            <a href="#experience" class="block text-slate-300 hover:text-brand-accent py-2 font-medium">Experience</a>
+            <a href="#projects" class="block text-slate-300 hover:text-brand-accent py-2 font-medium">Projects & Innovations</a>
+            <a href="#metrics" class="block text-slate-300 hover:text-brand-accent py-2 font-medium">Impact & Metrics</a>
+            <div class="pt-2 flex flex-col gap-2">
+                <button onclick="openModal('resume-modal')" class="w-full py-2.5 rounded-lg border border-slate-700 bg-darkbg text-slate-200 text-sm font-semibold">
+                    <i class="fa-solid fa-file-pdf mr-2 text-brand-accent"></i>View Executive Profile
+                </button>
+                <a href="#contact" class="w-full text-center py-2.5 rounded-lg bg-brand-600 text-white font-semibold text-sm">
+                    Connect
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-20">
+
+        <!-- 1. Hero Section -->
+        <section id="hero" class="relative min-h-[90vh] flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+            <div class="absolute top-1/4 left-10 w-96 h-96 bg-brand-600/10 rounded-full filter blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-10 right-10 w-96 h-96 bg-indigo-600/10 rounded-full filter blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/30 text-brand-accent text-xs font-semibold tracking-wide uppercase">
+                        <span class="w-2 h-2 rounded-full bg-brand-accent animate-pulse"></span>
+                        <span>IT Leadership • Infrastructure • Service Delivery</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight">
+                        Fachrurozi
+                    </h1>
+                    <p class="text-xl font-medium text-slate-300">
+                        Senior IT Manager / IT Infrastructure & Service Delivery Leader
+                    </p>
+
+                    <p class="text-base text-slate-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        15+ years of strategic IT leadership driving resilient IT infrastructure, enterprise IT Asset Management (ITAM), disaster recovery (DRP/BCP), and regional corporate alignment. Experienced in steering high-performing engineering teams and engineering custom automated solutions.
+                    </p>
+
+                    <!-- Focus Badges -->
+                    <div class="flex flex-wrap gap-2 justify-center lg:justify-start pt-2">
+                        <span class="px-3 py-1 rounded-md bg-borderbg text-xs text-slate-300 border border-slate-700/60"><i class="fa-solid fa-users mr-1.5 text-brand-accent"></i> Engineering Team Leadership</span>
+                        <span class="px-3 py-1 rounded-md bg-borderbg text-xs text-slate-300 border border-slate-700/60"><i class="fa-solid fa-server mr-1.5 text-brand-accent"></i> Enterprise Systems & MECM</span>
+                        <span class="px-3 py-1 rounded-md bg-borderbg text-xs text-slate-300 border border-slate-700/60"><i class="fa-solid fa-network-wired mr-1.5 text-brand-accent"></i> Mikrotik / Juniper Networking</span>
+                        <span class="px-3 py-1 rounded-md bg-borderbg text-xs text-slate-300 border border-slate-700/60"><i class="fa-solid fa-globe mr-1.5 text-brand-accent"></i> Regional HQ Liaison</span>
+                    </div>
+
+                    <!-- Call to Actions -->
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
+                        <a href="#contact" class="px-8 py-4 rounded-xl bg-gradient-to-r from-brand-600 to-indigo-600 text-white font-semibold text-base hover:shadow-xl hover:shadow-brand-500/20 transition-all text-center">
+                            Initiate Direct Contact <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </a>
+                        <a href="#projects" class="px-8 py-4 rounded-xl bg-cardbg hover:bg-borderbg border border-slate-700 text-slate-200 font-semibold text-base transition-all text-center">
+                            Explore Projects & Case Studies
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Executive Card -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="w-full max-w-md glass-panel rounded-2xl p-6 sm:p-8 relative glow-effect border border-slate-800">
+                        <div class="flex items-center space-x-4 mb-6">
+                            <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-brand-600 to-indigo-700 flex items-center justify-center text-white text-3xl font-extrabold shadow-md border border-brand-400/30">
+                                F
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-white">Fachrurozi</h3>
+                                <p class="text-brand-accent text-sm font-medium">Senior IT Infrastructure Manager</p>
+                                <p class="text-xs text-slate-400 mt-1"><i class="fa-solid fa-shield-halved mr-1 text-slate-500"></i> Enterprise IT & Service Governance</p>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4 text-sm border-t border-slate-800 pt-6">
+                            <div class="flex justify-between items-center">
+                                <span class="text-slate-400">Leadership Experience:</span>
+                                <span class="font-semibold text-white">15+ Years</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-slate-400">Team Leadership:</span>
+                                <span class="font-semibold text-white">Up to 16 Engineers & Staff</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-slate-400">Infrastructure SLA Target:</span>
+                                <span class="font-semibold text-emerald-400">99.9% Uptime Achieved</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-slate-400">Core Specialty:</span>
+                                <span class="font-semibold text-white">ITAM, ITIL & System Automation</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 p-3.5 rounded-xl bg-brand-500/10 border border-brand-500/20 flex items-center space-x-3">
+                            <span class="relative flex h-3 w-3">
+                              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
+                              <span class="relative inline-flex rounded-full h-3 w-3 bg-brand-500"></span>
+                            </span>
+                            <span class="text-xs text-brand-accent font-medium">Ready for Strategic Management & Regional IT Roles</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Metrics & Key Dashboard -->
+        <section id="metrics" class="py-16 bg-cardbg/40 border-y border-borderbg">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8 text-center">
+                    <div class="p-6 rounded-2xl bg-cardbg border border-borderbg shadow-lg hover:border-brand-500/40 transition-colors">
+                        <div class="text-3xl sm:text-4xl font-extrabold text-brand-accent tracking-tight mb-1">15+</div>
+                        <p class="text-sm text-slate-300 font-semibold">Years Experience</p>
+                        <p class="text-xs text-slate-500 mt-1">IT Operations & Leadership</p>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-cardbg border border-borderbg shadow-lg hover:border-brand-500/40 transition-colors">
+                        <div class="text-3xl sm:text-4xl font-extrabold text-brand-accent tracking-tight mb-1">16</div>
+                        <p class="text-sm text-slate-300 font-semibold">Engineering Personnel</p>
+                        <p class="text-xs text-slate-500 mt-1">Multi-tier Team Management</p>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-cardbg border border-borderbg shadow-lg hover:border-brand-500/40 transition-colors">
+                        <div class="text-3xl sm:text-4xl font-extrabold text-emerald-400 tracking-tight mb-1">99.9%</div>
+                        <p class="text-sm text-slate-300 font-semibold">Infrastructure Availability</p>
+                        <p class="text-xs text-slate-500 mt-1">Enterprise BCP & High Availability</p>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-cardbg border border-borderbg shadow-lg hover:border-brand-500/40 transition-colors">
+                        <div class="text-3xl sm:text-4xl font-extrabold text-indigo-400 tracking-tight mb-1">20%+</div>
+                        <p class="text-sm text-slate-300 font-semibold">OpEx Cost Optimization</p>
+                        <p class="text-xs text-slate-500 mt-1">Achieved via Strategic ITAM</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Core Competencies & Skills -->
+        <section id="competencies" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-semibold text-brand-accent tracking-widest uppercase mb-2">Executive Capability Matrix</h2>
+                <h3 class="text-3xl sm:text-4xl font-bold text-white">Core Competencies & Technology Stack</h3>
+                <p class="text-slate-400 mt-4 text-sm sm:text-base">Combining hands-on technical architecture with ITIL alignment, vendor negotiations, and team leadership.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Competency 1 -->
+                <div class="p-8 rounded-2xl bg-cardbg border border-borderbg hover:border-brand-500/50 transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-xl bg-brand-500/10 border border-brand-500/30 flex items-center justify-center text-brand-accent text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-diagram-project"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">IT Infrastructure & Networking</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Designing resilient local and wide-area networks, managing Mikrotik & Juniper hardware routers, enterprise firewalls, VLAN segmentations, and site-to-site VPN tunnels.</p>
+                    <ul class="text-xs text-slate-400 space-y-2">
+                        <li><i class="fa-solid fa-circle-check text-brand-accent mr-2"></i>Mikrotik & Juniper Core Routing</li>
+                        <li><i class="fa-solid fa-circle-check text-brand-accent mr-2"></i>Multi-site VLAN & Secure VPN Tunnels</li>
+                    </ul>
+                </div>
+
+                <!-- Competency 2 -->
+                <div class="p-8 rounded-2xl bg-cardbg border border-borderbg hover:border-brand-500/50 transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400 text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-cubes-stacked"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Systems Administration & MECM</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Centralized endpoint and server management using Microsoft Endpoint Configuration Manager (SCCM/MECM), Windows Server Active Directory, GPO policies, and Linux administration.</p>
+                    <ul class="text-xs text-slate-400 space-y-2">
+                        <li><i class="fa-solid fa-circle-check text-indigo-400 mr-2"></i>SCCM/MECM Automated Patch & Software Delivery</li>
+                        <li><i class="fa-solid fa-circle-check text-indigo-400 mr-2"></i>Windows Server & Linux Systems Management</li>
+                    </ul>
+                </div>
+
+                <!-- Competency 3 -->
+                <div class="p-8 rounded-2xl bg-cardbg border border-borderbg hover:border-brand-500/50 transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-warehouse"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">IT Asset Management (ITAM & SAM)</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Establishing lifecycle governance for hardware, software license audits, procurement compliance, and inventory tracking to maximize asset longevity and prevent software audit penalties.</p>
+                    <ul class="text-xs text-slate-400 space-y-2">
+                        <li><i class="fa-solid fa-circle-check text-emerald-400 mr-2"></i>Software Audit Risk Mitigation & SAM</li>
+                        <li><i class="fa-solid fa-circle-check text-emerald-400 mr-2"></i>Hardware Depreciation & Lifecycle Tracking</li>
+                    </ul>
+                </div>
+
+                <!-- Competency 4 -->
+                <div class="p-8 rounded-2xl bg-cardbg border border-borderbg hover:border-brand-500/50 transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-globe"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Regional HQ Liaison & Governance</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Serving as the primary local IT lead liaising with overseas regional headquarters to align global IT mandates with local business policies, compliance, and language requirements.</p>
+                    <ul class="text-xs text-slate-400 space-y-2">
+                        <li><i class="fa-solid fa-circle-check text-amber-400 mr-2"></i>Cross-Border Stakeholder Communication</li>
+                        <li><i class="fa-solid fa-circle-check text-amber-400 mr-2"></i>Global Standards Rollout Locally</li>
+                    </ul>
+                </div>
+
+                <!-- Competency 5 -->
+                <div class="p-8 rounded-2xl bg-cardbg border border-borderbg hover:border-brand-500/50 transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-shield-triangle-exclamation"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Disaster Recovery (DRP) & BCP</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Designing and conducting routine Disaster Recovery Plan (DRP) drills, business continuity strategy, off-site backup vaulting, and failover verification to safeguard operations.</p>
+                    <ul class="text-xs text-slate-400 space-y-2">
+                        <li><i class="fa-solid fa-circle-check text-purple-400 mr-2"></i>RTO / RPO Optimization</li>
+                        <li><i class="fa-solid fa-circle-check text-purple-400 mr-2"></i>Incident Response & System Redundancy</li>
+                    </ul>
+                </div>
+
+                <!-- Competency 6 -->
+                <div class="p-8 rounded-2xl bg-cardbg border border-borderbg hover:border-brand-500/50 transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-xl bg-rose-500/10 border border-rose-500/30 flex items-center justify-center text-rose-400 text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Custom Software & System Automation</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Combining managerial vision with custom software development (Python, Kivy framework for POS solutions) and scripting to automate IT service processes and workflows.</p>
+                    <ul class="text-xs text-slate-400 space-y-2">
+                        <li><i class="fa-solid fa-circle-check text-rose-400 mr-2"></i>Python / Kivy Custom App Development</li>
+                        <li><i class="fa-solid fa-circle-check text-rose-400 mr-2"></i>Automated Operational Scripting</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Experience Timeline -->
+        <section id="experience" class="py-24 bg-cardbg/30 border-t border-borderbg">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-xs font-semibold text-brand-accent tracking-widest uppercase mb-2">Track Record</h2>
+                    <h3 class="text-3xl sm:text-4xl font-bold text-white">Professional Experience</h3>
+                    <p class="text-slate-400 mt-4 text-sm">Over 15 years of continuous growth in enterprise IT leadership, network engineering, and service delivery.</p>
+                </div>
+
+                <div class="relative border-l-2 border-brand-500/30 ml-4 md:ml-32 space-y-12">
+                    
+                    <!-- Timeline Item 1 -->
+                    <div class="relative pl-8 group">
+                        <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-brand-500 border-4 border-darkbg group-hover:scale-125 transition-transform"></div>
+                        <div class="hidden md:block absolute -left-36 top-1 w-28 text-right text-xs font-semibold text-brand-accent uppercase tracking-wider">
+                            2018 — Present
+                        </div>
+
+                        <div class="bg-cardbg p-6 sm:p-8 rounded-2xl border border-borderbg hover:border-slate-700 transition-colors">
+                            <span class="md:hidden inline-block px-2.5 py-1 rounded bg-brand-500/10 text-brand-accent text-xs font-semibold mb-3">2018 — Present</span>
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                                <div>
+                                    <h4 class="text-xl font-bold text-white">Senior IT Manager / Head of Infrastructure & Service Delivery</h4>
+                                    <p class="text-sm text-brand-accent font-medium">Enterprise Technology & Corporate Services</p>
+                                </div>
+                                <span class="text-xs text-slate-400 bg-borderbg px-3 py-1 rounded-full w-fit">Regional Office</span>
+                            </div>
+
+                            <p class="text-sm text-slate-300 leading-relaxed mb-4">
+                                Direct multi-disciplinary IT department of 16 engineers and support personnel. Oversee end-to-end IT infrastructure, network security (Mikrotik/Juniper), MECM deployment, and ITAM lifecycle while acting as the strategic liaison to the Regional Head Office.
+                            </p>
+
+                            <div class="space-y-2 text-xs text-slate-400 mb-6">
+                                <div class="flex items-start">
+                                    <i class="fa-solid fa-chevron-right text-brand-500 text-xs mt-0.5 mr-2"></i>
+                                    <span>Streamlined IT Asset Management (ITAM), achieving over <strong>20% reduction in annual software and hardware OpEx</strong>.</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fa-solid fa-chevron-right text-brand-500 text-xs mt-0.5 mr-2"></i>
+                                    <span>Implemented centralized MECM/SCCM system management, reducing OS deployment and patching lead time by 60%.</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fa-solid fa-chevron-right text-brand-500 text-xs mt-0.5 mr-2"></i>
+                                    <span>Led bi-annual DRP/BCP simulations ensuring 99.9% uptime compliance across mission-critical enterprise systems.</span>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2.5 py-1 rounded bg-borderbg text-[11px] text-slate-300">Team Leadership (16 personnel)</span>
+                                <span class="px-2.5 py-1 rounded bg-borderbg text-[11px] text-slate-300">MECM / SCCM</span>
+                                <span class="px-2.5 py-1 rounded bg-borderbg text-[11px] text-slate-300">ITAM / SAM</span>
+                                <span class="px-2.5 py-1 rounded bg-borderbg text-[11px] text-slate-300">Regional HQ Liaison</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 2 -->
+                    <div class="relative pl-8 group">
+                        <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-600 border-4 border-darkbg group-hover:bg-brand-500 transition-colors"></div>
+                        <div class="hidden md:block absolute -left-36 top-1 w-28 text-right text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                            2013 — 2018
+                        </div>
+
+                        <div class="bg-cardbg p-6 sm:p-8 rounded-2xl border border-borderbg hover:border-slate-700 transition-colors">
+                            <span class="md:hidden inline-block px-2.5 py-1 rounded bg-borderbg text-slate-400 text-xs font-semibold mb-3">2013 — 2018</span>
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                                <div>
+                                    <h4 class="text-xl font-bold text-white">IT Infrastructure & Network Lead</h4>
+                                    <p class="text-sm text-brand-accent font-medium">Regional Telecom & Network Solutions</p>
+                                </div>
+                                <span class="text-xs text-slate-400 bg-borderbg px-3 py-1 rounded-full w-fit">Corporate HQ</span>
+                            </div>
+
+                            <p class="text-sm text-slate-300 leading-relaxed mb-4">
+                                Managed high-capacity network routing and switching architecture across corporate branches. Managed Mikrotik/Juniper hardware configurations, site-to-site VPNs, and server virtualization clusters.
+                            </p>
+
+                            <div class="space-y-2 text-xs text-slate-400 mb-6">
+                                <div class="flex items-start">
+                                    <i class="fa-solid fa-chevron-right text-brand-500 text-xs mt-0.5 mr-2"></i>
+                                    <span>Engineered multi-site VLAN network topology across 8 regional branches using Mikrotik and Juniper switches.</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fa-solid fa-chevron-right text-brand-500 text-xs mt-0.5 mr-2"></i>
+                                    <span>Spearheaded zero-downtime server migration project to hyper-converged virtualized infrastructure.</span>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2.5 py-1 rounded bg-borderbg text-[11px] text-slate-300">Mikrotik RouterOS</span>
+                                <span class="px-2.5 py-1 rounded bg-borderbg text-[11px] text-slate-300">Juniper Networks</span>
+                                <span class="px-2.5 py-1 rounded bg-borderbg text-[11px] text-slate-300">VLAN / VPN</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 3 -->
+                    <div class="relative pl-8 group">
+                        <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-600 border-4 border-darkbg group-hover:bg-brand-500 transition-colors"></div>
+                        <div class="hidden md:block absolute -left-36 top-1 w-28 text-right text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                            2009 — 2013
+                        </div>
+
+                        <div class="bg-cardbg p-6 sm:p-8 rounded-2xl border border-borderbg hover:border-slate-700 transition-colors">
+                            <span class="md:hidden inline-block px-2.5 py-1 rounded bg-borderbg text-slate-400 text-xs font-semibold mb-3">2009 — 2013</span>
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                                <div>
+                                    <h4 class="text-xl font-bold text-white">Systems Administrator & IT Support Specialist</h4>
+                                    <p class="text-sm text-brand-accent font-medium">Enterprise Systems Group</p>
+                                </div>
+                            </div>
+                            <p class="text-sm text-slate-300 leading-relaxed">
+                                Handled Active Directory administration, user desktop environments, hardware maintenance, peripheral management, and initial ITIL-aligned service helpdesk operations.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Featured Projects & Case Studies -->
+        <section id="projects" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <h2 class="text-xs font-semibold text-brand-accent tracking-widest uppercase mb-2">Spotlight</h2>
+                    <h3 class="text-3xl sm:text-4xl font-bold text-white">Projects & Technical Innovations</h3>
+                </div>
+
+                <!-- Filter Buttons -->
+                <div class="flex flex-wrap gap-2 mt-6 md:mt-0" id="project-filters">
+                    <button data-filter="all" class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold bg-brand-600 text-white transition-all">All</button>
+                    <button data-filter="infra" class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold bg-cardbg text-slate-400 hover:text-white border border-borderbg transition-all">Infrastructure</button>
+                    <button data-filter="itam" class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold bg-cardbg text-slate-400 hover:text-white border border-borderbg transition-all">ITAM & Compliance</button>
+                    <button data-filter="dev" class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold bg-cardbg text-slate-400 hover:text-white border border-borderbg transition-all">Custom Software (Kivy/Python)</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+
+                <!-- Project 1 -->
+                <div class="project-card bg-cardbg rounded-2xl border border-borderbg overflow-hidden flex flex-col justify-between hover:shadow-xl transition-all" data-category="infra">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="px-2.5 py-1 rounded bg-brand-500/10 text-brand-accent text-xs font-semibold">Infrastructure & MECM</span>
+                            <span class="text-xs text-slate-500">Enterprise</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">Centralized MECM/SCCM Enterprise Endpoint Automation</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            Architected and deployed Microsoft Endpoint Configuration Manager across 1,200+ workstations and servers, automating patch compliance, software deployment, and remote system management.
+                        </p>
+                        <div class="border-t border-borderbg pt-4 mb-4">
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="text-slate-400">Patch Deployment Time:</span>
+                                <span class="text-emerald-400 font-semibold">Reduced by 60%</span>
+                            </div>
+                            <div class="flex justify-between text-xs">
+                                <span class="text-slate-400">Endpoint Compliance:</span>
+                                <span class="text-white font-semibold">99.2% Standardized</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-darkbg/50 px-6 py-4 border-t border-borderbg flex flex-wrap gap-1.5">
+                        <span class="text-[10px] px-2 py-0.5 rounded bg-borderbg text-slate-300">SCCM / MECM</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded bg-borderbg text-slate-300">Active Directory</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded bg-borderbg text-slate-300">GPO Automation</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card bg-cardbg rounded-2xl border border-borderbg overflow-hidden flex flex-col justify-between hover:shadow-xl transition-all" data-category="itam">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-400 text-xs font-semibold">ITAM & Governance</span>
+                            <span class="text-xs text-slate-500">Regional Optimization</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">Regional IT Asset & Software License Optimization</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            Overhauled IT Asset Management (ITAM) workflows by establishing centralized hardware asset tracking and software license audit controls, eliminating redundant licensing costs.
+                        </p>
+                        <div class="border-t border-borderbg pt-4 mb-4">
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="text-slate-400">OpEx Cost Savings:</span>
+                                <span class="text-emerald-400 font-semibold">20%+ Annual Reduction</span>
+                            </div>
+                            <div class="flex justify-between text-xs">
+                                <span class="text-slate-400">Software Audit Risk:</span>
+                                <span class="text-white font-semibold">Zero Penalties</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-darkbg/50 px-6 py-4 border-t border-borderbg flex flex-wrap gap-1.5">
+                        <span class="text-[10px] px-2 py-0.5 rounded bg-borderbg text-slate-300">ITAM Lifecycle</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded bg-borderbg text-slate-300">SAM Compliance</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded bg-borderbg text-slate-300">Vendor Negotiations</span>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card bg-cardbg rounded-2xl border border-borderbg overflow-hidden flex flex-col justify-between hover:shadow-xl transition-all" data-category="dev">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="px-2.5 py-1 rounded bg-rose-500/10 text-rose-400 text-xs font-semibold">Custom Software</span>
+                            <span class="text-xs text-slate-500">Python / Kivy Development</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">Custom POS System Development (Python & Kivy)</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            Engineered a custom Point of Sale (POS) solution using Python and the Kivy framework for touch GUI interfaces, featuring offline transaction queuing, hardware printer integration, and local SQLite syncing.
+                        </p>
+                        <div class="border-t border-borderbg pt-4 mb-4">
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="text-slate-400">Architecture:</span>
+                                <span class="text-rose-400 font-semibold">Cross-Platform (Linux/Win/Android)</span>
+                            </div>
+                            <div class="flex justify-between text-xs">
+                                <span class="text-slate-400">Core Tech:</span>
+                                <span class="text-white font-semibold">Python3, Kivy, SQLite</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-darkbg/50 px-6 py-4 border-t border-borderbg flex flex-wrap gap-1.5">
+                        <span class="text-[10px] px-2 py-0.5 rounded bg-borderbg text-slate-300">Python</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded bg-borderbg text-slate-300">Kivy Framework</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded bg-borderbg text-slate-300">Custom Automation</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 6. Executive Contact & Engagement -->
+        <section id="contact" class="py-24 bg-cardbg/40 border-t border-borderbg">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    
+                    <div class="lg:col-span-5 space-y-6">
+                        <h2 class="text-xs font-semibold text-brand-accent tracking-widest uppercase">Contact Executive</h2>
+                        <h3 class="text-3xl sm:text-4xl font-bold text-white">Let’s Connect</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Interested in discussing Senior IT Management roles, IT Infrastructure Advisory, ITAM optimization, or custom engineering projects? Send a direct message below.
+                        </p>
+
+                        <div class="space-y-4 pt-4">
+                            <div class="flex items-center space-x-4 p-4 rounded-xl bg-cardbg border border-borderbg">
+                                <div class="w-10 h-10 rounded-lg bg-brand-500/10 flex items-center justify-center text-brand-accent">
+                                    <i class="fa-solid fa-user-gear"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-400">Executive Profile</p>
+                                    <p class="text-sm font-semibold text-white">Fachrurozi</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center space-x-4 p-4 rounded-xl bg-cardbg border border-borderbg">
+                                <div class="w-10 h-10 rounded-lg bg-brand-500/10 flex items-center justify-center text-brand-accent">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-400">Email Address</p>
+                                    <a href="mailto:fachrurozi.2010@gmail.com" class="text-sm font-semibold text-white hover:text-brand-accent transition-colors">fachrurozi.2010@gmail.com</a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center space-x-4 p-4 rounded-xl bg-cardbg border border-borderbg">
+                                <div class="w-10 h-10 rounded-lg bg-brand-500/10 flex items-center justify-center text-brand-accent">
+                                    <i class="fa-brands fa-linkedin"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-400">LinkedIn</p>
+                                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-white hover:text-brand-accent transition-colors">linkedin.com/in/fachrurozi</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="lg:col-span-7">
+                        <div class="bg-cardbg p-8 rounded-2xl border border-borderbg shadow-2xl">
+                            <form id="contact-form" class="space-y-6">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                    <div>
+                                        <label for="name" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Your Name</label>
+                                        <input type="text" id="name" required placeholder="John Doe" class="w-full bg-darkbg border border-borderbg rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-500 transition-colors">
+                                    </div>
+                                    <div>
+                                        <label for="email" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Email Address</label>
+                                        <input type="email" id="email" required placeholder="john@company.com" class="w-full bg-darkbg border border-borderbg rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-500 transition-colors">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label for="subject" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Subject / Inquiry</label>
+                                    <select id="subject" class="w-full bg-darkbg border border-borderbg rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-500 transition-colors">
+                                        <option value="IT Management Opportunity">IT Management / Leadership Opportunity</option>
+                                        <option value="Infrastructure Advisory">Infrastructure & Network Advisory</option>
+                                        <option value="ITAM / Audit Consultation">ITAM & Software Asset Management Consultation</option>
+                                        <option value="Software Development Inquiry">Custom POS / Software Development</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label for="message" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Message</label>
+                                    <textarea id="message" rows="5" required placeholder="Details about your inquiry..." class="w-full bg-darkbg border border-borderbg rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-500 transition-colors"></textarea>
+                                </div>
+
+                                <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-brand-600 to-indigo-600 text-white font-semibold text-sm hover:opacity-90 transition-opacity flex items-center justify-center space-x-2">
+                                    <span>Send Message to Fachrurozi</span>
+                                    <i class="fa-solid fa-paper-plane text-xs"></i>
+                                </button>
+                            </form>
+
+                            <div id="form-alert" class="hidden mt-4 p-4 rounded-lg text-xs font-medium"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Executive Resume Modal -->
+    <div id="resume-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-cardbg border border-borderbg w-full max-w-3xl rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+            <div class="px-6 py-4 border-b border-borderbg flex justify-between items-center bg-darkbg/50">
+                <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center text-white font-bold text-xs">F</div>
+                    <h3 class="font-bold text-white text-base">Executive Profile Summary — Fachrurozi</h3>
+                </div>
+                <button onclick="closeModal('resume-modal')" class="text-slate-400 hover:text-white p-2">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto space-y-6 text-sm text-slate-300">
+                <div class="border-b border-borderbg pb-4">
+                    <h4 class="text-lg font-bold text-white">Fachrurozi</h4>
+                    <p class="text-brand-accent text-xs">Senior IT Infrastructure & Service Delivery Leader</p>
+                    <p class="text-xs text-slate-400 mt-1">15+ Years IT Experience | Multi-tier Team Leadership (up to 16 staff) | ITAM | Disaster Recovery</p>
+                </div>
+
+                <div>
+                    <h5 class="font-bold text-white uppercase text-xs tracking-wider mb-2 text-brand-accent">Core Professional Highlights</h5>
+                    <ul class="list-disc list-inside space-y-1.5 text-xs text-slate-300">
+                        <li>15+ years heading IT infrastructure operations, networking, endpoint administration, and enterprise service delivery.</li>
+                        <li>Proven track record managing 16 engineering & technical personnel with high retention and CSAT execution.</li>
+                        <li>Extensive experience with MECM/SCCM automation, Active Directory GPO, Mikrotik RouterOS, Juniper switches, VLANs, and VPNs.</li>
+                        <li>Strategic implementation of IT Asset Management (ITAM), achieving over 20% savings in OpEx licensing and hardware replacement.</li>
+                        <li>Direct liaison experience with overseas Regional HQ, ensuring global standard compliance locally.</li>
+                        <li>Hands-on software development expertise in Python and Kivy framework for custom POS tools.</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="font-bold text-white uppercase text-xs tracking-wider mb-2 text-brand-accent">Technical Matrix</h5>
+                    <div class="grid grid-cols-2 gap-2 text-xs">
+                        <div class="bg-darkbg p-2.5 rounded border border-borderbg"><strong>Networking:</strong> Mikrotik, Juniper, VLAN, VPN</div>
+                        <div class="bg-darkbg p-2.5 rounded border border-borderbg"><strong>Systems:</strong> MECM/SCCM, Windows Server, Linux</div>
+                        <div class="bg-darkbg p-2.5 rounded border border-borderbg"><strong>Governance:</strong> ITAM, SAM, ITIL, DRP/BCP</div>
+                        <div class="bg-darkbg p-2.5 rounded border border-borderbg"><strong>Development:</strong> Python, Kivy Framework, SQLite</div>
+                    </div>
+                </div>
+            </div>
+            <div class="px-6 py-4 border-t border-borderbg bg-darkbg/50 flex justify-end">
+                <button onclick="closeModal('resume-modal')" class="px-5 py-2 rounded-lg bg-brand-600 text-white text-xs font-semibold hover:bg-brand-500">Close Profile</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-darkbg border-t border-borderbg py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-slate-500">
+                &copy; 2026 Fachrurozi. Senior IT Management & Infrastructure Executive.
+            </p>
+            <div class="flex items-center space-x-6 text-xs text-slate-400">
+                <a href="#hero" class="hover:text-brand-accent transition-colors">Back to Top <i class="fa-solid fa-arrow-up ml-1"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Mobile Navigation Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Project Filter Logic
+        const filterBtns = document.querySelectorAll('#project-filters .filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.className = 'filter-btn px-4 py-2 rounded-lg text-xs font-semibold bg-cardbg text-slate-400 hover:text-white border border-borderbg transition-all';
+                });
+
+                btn.className = 'filter-btn px-4 py-2 rounded-lg text-xs font-semibold bg-brand-600 text-white transition-all';
+                const filterValue = btn.getAttribute('data-filter');
+
+                projectCards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Modal Logic
+        function openModal(id) {
+            document.getElementById(id).classList.remove('hidden');
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.add('hidden');
+        }
+
+        // Contact Form Submission Simulation
+        const contactForm = document.getElementById('contact-form');
+        const formAlert = document.getElementById('form-alert');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            formAlert.classList.remove('hidden', 'bg-red-500/10', 'text-red-400');
+            formAlert.classList.add('bg-emerald-500/10', 'text-emerald-400', 'border', 'border-emerald-500/20');
+            formAlert.innerHTML = '<i class="fa-solid fa-circle-check mr-2"></i> Message sent successfully! Fachrurozi will review your message shortly.';
+            contactForm.reset();
+
+            setTimeout(() => {
+                formAlert.classList.add('hidden');
+            }, 6000);
+        });
+    </script>
+</body>
+</html>
